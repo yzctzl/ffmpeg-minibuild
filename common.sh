@@ -2,7 +2,7 @@
 
 FFMPEG_VERSION=5.1.s
 FFMPEG_TARBALL=ffmpeg-$FFMPEG_VERSION.tar.bz2
-FFMPEG_TARBALL_URL=https://github.com/yzctzl/ffmpeg-minibuild/raw/master/$FFMPEG_TARBALL
+FFMPEG_TARBALL_URL=https://github.com/yzctzl/ffmpeg-minibuild/raw/master/TARBALL/$FFMPEG_TARBALL
 
 FFMPEG_CONFIGURE_FLAGS=(
     --disable-shared
@@ -10,8 +10,8 @@ FFMPEG_CONFIGURE_FLAGS=(
 
     --enable-ffmpeg
     --enable-ffprobe
+    --enable-doc
 
-    --disable-doc
     --disable-debug
     --disable-avdevice
     --disable-swscale
