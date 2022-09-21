@@ -15,9 +15,6 @@ FFMPEG_CONFIGURE_FLAGS=(
     --disable-debug
     --disable-avdevice
     --disable-swscale
-    --disable-programs
-#     --disable-zlib
-#     --disable-bzlib
     --disable-iconv
     --disable-bsfs
     --disable-indevs
