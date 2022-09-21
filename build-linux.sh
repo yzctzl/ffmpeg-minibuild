@@ -7,14 +7,14 @@ BASE_DIR=$(pwd)
 
 source common.sh
 
-if [ ! -e $FFMPEG_TARBALL ]
-then
-	curl -s -L -O $FFMPEG_TARBALL_URL
-fi
+# if [ ! -e $FFMPEG_TARBALL ]
+# then
+# 	curl -s -L -O $FFMPEG_TARBALL_URL
+# fi
 
 : ${ARCH?}
 
-OUTPUT_DIR=artifacts/ffmpeg-$FFMPEG_VERSION-audio-$ARCH-linux-gnu
+OUTPUT_DIR=artifacts/ffmpeg-$FFMPEG_VERSION-minimal-$ARCH-linux-gnu
 
 case $ARCH in
     x86_64)
@@ -64,7 +64,7 @@ BUILD_DIR=$(mktemp -d -p $(pwd) build.XXXXXXXX)
 trap 'rm -rf $BUILD_DIR' EXIT
 
 cd $BUILD_DIR
-tar --strip-components=1 -xf $BASE_DIR/$FFMPEG_TARBALL
+tar --strip-components=1 -xf $BASE_DIR/TARBALL/$FFMPEG_TARBALL
 
 FFMPEG_CONFIGURE_FLAGS+=(--prefix=$BASE_DIR/$OUTPUT_DIR)
 

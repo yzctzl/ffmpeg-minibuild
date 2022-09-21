@@ -7,10 +7,10 @@ BASE_DIR=$(pwd)
 
 source common.sh
 
-if [ ! -e $FFMPEG_TARBALL ]
-then
-	curl -O $FFMPEG_TARBALL_URL
-fi
+# if [ ! -e $FFMPEG_TARBALL ]
+# then
+# 	curl -O $FFMPEG_TARBALL_URL
+# fi
 
 : ${TARGET?}
 
@@ -27,13 +27,13 @@ case $TARGET in
         ;;
 esac
 
-OUTPUT_DIR=artifacts/ffmpeg-$FFMPEG_VERSION-audio-$TARGET
+OUTPUT_DIR=artifacts/ffmpeg-$FFMPEG_VERSION-minimal-$TARGET
 
 BUILD_DIR=$BASE_DIR/$(mktemp -d build.XXXXXXXX)
 trap 'rm -rf $BUILD_DIR' EXIT
 
 cd $BUILD_DIR
-tar --strip-components=1 -xf $BASE_DIR/$FFMPEG_TARBALL
+tar --strip-components=1 -xf $BASE_DIR/TARBALL/$FFMPEG_TARBALL
 
 FFMPEG_CONFIGURE_FLAGS+=(
     --cc=/usr/bin/clang
