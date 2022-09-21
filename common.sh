@@ -16,17 +16,14 @@ FFMPEG_CONFIGURE_FLAGS=(
     --disable-avdevice
     --disable-swscale
     --disable-programs
-    --disable-zlib
-    --disable-bzlib
+#     --disable-zlib
+#     --disable-bzlib
     --disable-iconv
     --disable-bsfs
     --disable-indevs
     --disable-outdevs
     --disable-hwaccels
     --disable-nvenc
-    --disable-xvmc
-    --disable-videotoolbox
-    --disable-audiotoolbox
 
     --enable-filters
     --enable-protocols
