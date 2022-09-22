@@ -66,7 +66,11 @@ trap 'rm -rf $BUILD_DIR' EXIT
 cd $BUILD_DIR
 tar --strip-components=1 -xf $BASE_DIR/TARBALL/$FFMPEG_TARBALL
 
-FFMPEG_CONFIGURE_FLAGS+=(--prefix=$BASE_DIR/$OUTPUT_DIR)
+FFMPEG_CONFIGURE_FLAGS+=(
+    --prefix=$BASE_DIR/$OUTPUT_DIR
+    --extra-cflags='-static -static-libgcc -static-libstdc++'
+    --extra-libs='-static -L/usr/lib'
+    )
 
 ./configure "${FFMPEG_CONFIGURE_FLAGS[@]}" || (cat ffbuild/config.log && exit 1)
 

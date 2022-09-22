@@ -25,6 +25,7 @@ tar --strip-components=1 -xf $BASE_DIR/TARBALL/$FFMPEG_TARBALL
 FFMPEG_CONFIGURE_FLAGS+=(
     --prefix=$BASE_DIR/$OUTPUT_DIR
     --extra-cflags='-static -static-libgcc -static-libstdc++'
+    --extra-libs='-static -L/usr/lib'
     --target-os=mingw32
     --arch=$ARCH
     --cross-prefix=$ARCH-w64-mingw32-
